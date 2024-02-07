@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ID         : #object:vilarity/program
+-->
+<!--
+ #object:vilarity/program.xml
+     : Defines the "vilarity/program" object definition.
+-->
+<!DOCTYPE ss SYSTEM "&SS.XML_DTD_PATH;">
+<ss:template name="#object:vilarity/program"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ss="http://www.basicmatrix.com/schema/ss">
+<ss:object name="vilarity/program">
+    <ss:bindings>
+      <ss:bind name="property">
+        <ss:param name="property">UUID</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">ctime</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">mtime</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">order</ss:param>
+      </ss:bind>
+    </ss:bindings>
+    <ss:properties>
+      <ss:bind name="storage">
+        <ss:param name="type">db</ss:param>
+        <ss:param name="table">vilarity_programs</ss:param>
+      </ss:bind>
+
+      <ss:property name="next" type="object" class="vilarity\Program" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nextIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+      <ss:property name="previous" type="object" class="vilarity\Program" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">previousIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <!-- Group Visibility: -1 (none), 0 (all groups), [groupId] (specific group by ID) -->
+      <ss:property name="groupVisibility" type="int" value="0">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programGroupVisibility</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="status" type="int" default="0" size="1">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programStatus</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="key" type="string" value="" maxlength="64">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programKey</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="number" type="int" value="" max="255">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programNumber</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="title" type="string" value="" maxlength="255">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programTitle</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="description" type="string" value="" maxlength="255">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programDescription</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="cardColor" type="string" value="" maxlength="16">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programCardColor</ss:param>
+        </ss:bind>
+      </ss:property>
+    </ss:properties>
+    <ss:namespace name=""></ss:namespace>
+    <ss:namespace name="api/v1">
+      <ss:sitemap template="vilarity/api-v1/program" />
+    </ss:namespace>
+  </ss:object>
+</ss:template>

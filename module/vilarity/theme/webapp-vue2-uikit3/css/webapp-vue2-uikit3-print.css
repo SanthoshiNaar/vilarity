@@ -1,0 +1,18 @@
+/****************************************************************************
+ * webapp-vue2-uikit3-print.css
+ ****************************************************************************/
+.printonly
+{
+  display: none;
+}
+
+@media print
+{
+  #developer_toolbar {
+    display: none;
+  }
+
+  .noprint {
+    display: none;
+  }
+}

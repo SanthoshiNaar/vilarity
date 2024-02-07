@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ID         : #object:vilarity/account
+-->
+<!--
+ #object:vilarity/account.xml
+     : Defines the "vilarity/account" object definition.
+-->
+<!DOCTYPE ss SYSTEM "&SS.XML_DTD_PATH;">
+<ss:template name="#object:vilarity/account"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ss="http://www.basicmatrix.com/schema/ss">
+  <ss:object name="vilarity/account">
+    <ss:bindings>
+      <ss:bind name="property">
+        <ss:param name="property">UUID</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">ctime</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">mtime</ss:param>
+      </ss:bind>
+    </ss:bindings>
+    <ss:properties>
+      <ss:bind name="storage">
+        <ss:param name="type">db</ss:param>
+        <ss:param name="table">vilarity_accounts</ss:param>
+      </ss:bind>
+
+      <ss:property name="type" type="string" maxlength="2" default=""><!-- Default: None -->
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">accountType</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="user" type="object" class="User" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">userIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="group" type="object" class="vilarity\Group" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">groupIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="groups" type="object_array" class="vilarity\Group" save-mode="never">
+      </ss:property>
+
+    </ss:properties>
+    <ss:namespace name=""></ss:namespace>
+    <ss:namespace name="api/v1">
+      <ss:sitemap template="vilarity/api-v1/account" />
+    </ss:namespace>
+  </ss:object>
+</ss:template>

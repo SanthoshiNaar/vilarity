@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ID         : #object:vilarity/group
+-->
+<!--
+ #object:vilarity/group.xml
+     : Defines the "vilarity/group" object definition.
+-->
+<!DOCTYPE ss SYSTEM "&SS.XML_DTD_PATH;">
+<ss:template name="#object:vilarity/group"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ss="http://www.basicmatrix.com/schema/ss">
+<ss:object name="vilarity/group">
+    <ss:bindings>
+      <ss:bind name="property">
+        <ss:param name="property">UUID</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">ctime</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">mtime</ss:param>
+      </ss:bind>
+    </ss:bindings>
+    <ss:properties>
+      <ss:bind name="storage">
+        <ss:param name="type">db</ss:param>
+        <ss:param name="table">vilarity_groups</ss:param>
+      </ss:bind>
+
+      <ss:property name="status" type="int" default="0" size="1">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">groupStatus</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="title" type="string" value="" maxlength="255">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">groupTitle</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="description" type="string" value="" maxlength="255">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">groupDescription</ss:param>
+        </ss:bind>
+      </ss:property>
+    </ss:properties>
+    <ss:namespace name=""></ss:namespace>
+    <ss:namespace name="api/v1">
+      <ss:sitemap template="vilarity/api-v1/group" />
+    </ss:namespace>
+  </ss:object>
+</ss:template>

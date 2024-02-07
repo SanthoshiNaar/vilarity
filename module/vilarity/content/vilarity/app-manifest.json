@@ -1,0 +1,9 @@
+{
+  "name": "Vilarity",
+  "short_name": "Vilarity",
+  "lang": "en-US",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#000000"
+}

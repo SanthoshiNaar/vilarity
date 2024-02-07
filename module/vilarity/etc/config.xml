@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ss SYSTEM "&SS.XML_DTD_PATH;">
+<ss:template name=""
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ss="http://www.basicmatrix.com/schema/ss">
+<ss:database name="registry">
+<!-- "vilarity" registry keys: -->
+
+  <ss:key name="VILARITY_SETTING_CONTENT_LEVELS">
+    <ss:value><?php return array (
+  'program' =>
+  array (
+    'level' => 0,
+    'defaultLabel' => 'Program',
+    'label' => 'Program',
+  ),
+  'series' =>
+  array (
+    'level' => 1,
+    'defaultLabel' => 'Series',
+    'label' => 'Series',
+  ),
+  'session' =>
+  array (
+    'level' => 2,
+    'defaultLabel' => 'Session',
+    'label' => 'Session',
+  ),
+  'part' =>
+  array (
+    'level' => 3,
+    'defaultLabel' => 'Part',
+    'label' => 'Part',
+  ),
+  'point' =>
+  array (
+    'level' => 4,
+    'defaultLabel' => 'Point',
+    'label' => 'Point',
+  ),
+);?></ss:value>
+  </ss:key>
+
+</ss:database>
+</ss:template>

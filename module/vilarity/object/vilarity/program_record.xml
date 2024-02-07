@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ID         : #object:vilarity/program_record
+-->
+<!--
+ #object:vilarity/program_record.xml
+     : Defines the "vilarity/program_record" object definition.
+-->
+<!DOCTYPE ss SYSTEM "&SS.XML_DTD_PATH;">
+<ss:template name="#object:vilarity/program_record"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ss="http://www.basicmatrix.com/schema/ss">
+<ss:object name="vilarity/program_record">
+    <ss:bindings>
+      <ss:bind name="property">
+        <ss:param name="property">UUID</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">ctime</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">mtime</ss:param>
+      </ss:bind>
+    </ss:bindings>
+    <ss:properties>
+      <ss:bind name="storage">
+        <ss:param name="type">db</ss:param>
+        <ss:param name="table">vilarity_programRecords</ss:param>
+      </ss:bind>
+
+      <ss:property name="account" type="object" class="vilarity\Account" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">accountIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <!-- Parent Program. Allows for all records for a program to be loaded at once.
+      -->
+      <ss:property name="program" type="object" class="vilarity\Program" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <!-- Parent ProgramNode of type "session". Allows for all records within a program session
+           to be loaded in bulk.
+      -->
+<!--
+      <ss:property name="sessionNode" type="object" class="vilarity\ProgramNode" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">sessionNodeIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+-->
+      <ss:property name="programNode" type="object" class="vilarity\ProgramNode" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programNodeIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="status" type="int" default="0" size="1">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">recordStatus</ss:param>
+        </ss:bind>
+      </ss:property>
+      <ss:property name="progress" type="float" default="0.0" min="0.0" max="1.0">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">recordProgress</ss:param>
+        </ss:bind>
+      </ss:property>
+      <ss:property name="dateCompleted" type="int">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">recordDateCompleted</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="value" type="string" value="" maxlength="10240">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">recordValue</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="notes" type="string" value="" maxlength="10240">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">recordNotes</ss:param>
+        </ss:bind>
+      </ss:property>
+    </ss:properties>
+    <ss:namespace name=""></ss:namespace>
+    <ss:namespace name="api/v1">
+      <ss:sitemap template="vilarity/api-v1/program/record" />
+    </ss:namespace>
+  </ss:object>
+</ss:template>

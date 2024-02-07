@@ -1,0 +1,25 @@
+/* The emerging W3C standard
+   that is currently Firefox-only */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: rgb(114, 117, 119) #222A30;
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+	width: 0.5em;
+}
+*::-webkit-scrollbar-track {
+	background: #222A30;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: rgb(114, 117, 119);
+	border-radius: 10px;
+	border: 1px solid rgb(46, 53, 58);
+}
+
+/* Make the <body> scroll bar a normal size. */
+body::-webkit-scrollbar {
+	scrollbar-width: auto;
+	width: auto;
+}

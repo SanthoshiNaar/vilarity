@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ID         : #object:vilarity/program_node
+-->
+<!--
+ #object:vilarity/program_node.xml
+     : Defines the "vilarity/program_node" object definition.
+-->
+<!DOCTYPE ss SYSTEM "&SS.XML_DTD_PATH;">
+<ss:template name="#object:vilarity/program_node"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ss="http://www.basicmatrix.com/schema/ss">
+<ss:object name="vilarity/program_node">
+    <ss:bindings>
+      <ss:bind name="property">
+        <ss:param name="property">UUID</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">ctime</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">mtime</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">order</ss:param>
+      </ss:bind>
+    </ss:bindings>
+    <ss:properties>
+      <ss:bind name="storage">
+        <ss:param name="type">db</ss:param>
+        <ss:param name="table">vilarity_programNodes</ss:param>
+      </ss:bind>
+
+      <ss:property name="program" type="object" class="vilarity\Program" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="parent" type="object" class="vilarity\ProgramNode" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">parentIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+      <ss:property name="next" type="object" class="vilarity\ProgramNode" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nextIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+      <ss:property name="previous" type="object" class="vilarity\ProgramNode" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">previousIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <!-- Group Visibility: -1 (none), 0 (all groups), [groupId] (specific group by ID) -->
+      <ss:property name="groupVisibility" type="int" value="0">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">programGroupVisibility</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="status" type="int" default="0" size="1">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nodeStatus</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="type" type="string" value="" maxlength="16">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nodeType</ss:param>
+        </ss:bind>
+      </ss:property>
+      <ss:property name="subType" type="string" value="" maxlength="16">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nodeSubType</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="key" type="string" value="" maxlength="64">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nodeKey</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="depth" type="int" value="" max="16">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nodeDepth</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="number" type="int" value="" max="255">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nodeNumber</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="title" type="string" value="" maxlength="255">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nodeTitle</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="description" type="string" value="" maxlength="10240">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nodeDescription</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="layoutWidth" type="string" value="" maxlength="16">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nodeLayoutWidth</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="instructionsContent" type="string" value="" default="" maxlength="65535">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">nodeInstructionsContent</ss:param>
+        </ss:bind>
+      </ss:property>
+    </ss:properties>
+    <ss:namespace name=""></ss:namespace>
+    <ss:namespace name="api/v1">
+      <ss:sitemap template="vilarity/api-v1/program/node" />
+    </ss:namespace>
+  </ss:object>
+</ss:template>

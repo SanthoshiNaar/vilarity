@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ID         : #object:vilarity/group_member
+-->
+<!--
+ #object:vilarity/group_member.xml
+     : Defines the "vilarity/group_member" object definition.
+-->
+<!DOCTYPE ss SYSTEM "&SS.XML_DTD_PATH;">
+<ss:template name="#object:vilarity/group_member"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ss="http://www.basicmatrix.com/schema/ss">
+<ss:object name="vilarity/group_member">
+    <ss:bindings>
+      <ss:bind name="property">
+        <ss:param name="property">UUID</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">ctime</ss:param>
+      </ss:bind>
+      <ss:bind name="property">
+        <ss:param name="property">mtime</ss:param>
+      </ss:bind>
+    </ss:bindings>
+    <ss:properties>
+      <ss:bind name="storage">
+        <ss:param name="type">db</ss:param>
+        <ss:param name="table">vilarity_groupMembers</ss:param>
+      </ss:bind>
+
+      <ss:property name="status" type="int" default="0" size="1">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">memberStatus</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="group" type="object" class="vilarity\Group" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">groupIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+
+      <ss:property name="account" type="object" class="vilarity\Account" save-mode="never">
+        <ss:bind name="storage">
+          <ss:param name="type">db</ss:param>
+          <ss:param name="attribute">accountIdRef</ss:param>
+        </ss:bind>
+      </ss:property>
+    </ss:properties>
+    <ss:namespace name=""></ss:namespace>
+    <ss:namespace name="api/v1">
+      <ss:sitemap template="vilarity/api-v1/group/member" />
+    </ss:namespace>
+  </ss:object>
+</ss:template>

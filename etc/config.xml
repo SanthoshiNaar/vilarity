@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ss SYSTEM "&SS.XML_DTD_PATH;">
+<ss:template name=""
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ss="http://www.basicmatrix.com/schema/ss">
+<ss:database name="registry">
+
+<!-- Application: -->
+  <ss:key name="APP_TITLE" value="Vilarity - Vision Clarity"/>
+  <ss:key name="APP_THEME" value="vilarity.com"/>
+<!--
+  <ss:key name="APP_URL_HTTP" value="https://vilarity.com/"/>
+  <ss:key name="APP_URL_HTTPS" value="https://vilarity.com/"/>
+-->
+<!-- Administrator: -->
+  <ss:key name="ADMIN_NAME" value="Vilarity"/>
+  <ss:key name="ADMIN_EMAIL" value="info@vilarity.com"/>
+  <ss:key name="DSN">
+    <ss:value><?php return array (
+  'username' => 'vilarity_ss',
+  'password' => '',
+  'database' => 'vilarity_ss',
+  'hostspec' => 'localhost',
+  'phptype' => 'mysql',
+  'dbsyntax' => NULL,
+  'protocol' => NULL,
+  'port' => NULL,
+  'socket' => NULL,
+);?></ss:value>
+  </ss:key>
+</ss:database>
+</ss:template>

@@ -1,0 +1,1 @@
+ss.vue.mixins['vilarity'] = {};

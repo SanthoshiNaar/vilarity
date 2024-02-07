@@ -1,0 +1,3 @@
+[submodule "theme/webapp-vue2-uikit3"]
+	path = theme/webapp-vue2-uikit3
+	url = git@git.stackoverlap.net:siteshader-theme/webapp-vue2-uikit3.git
